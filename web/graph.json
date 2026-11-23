@@ -1,0 +1,324 @@
+{
+  "cases": [
+    {
+      "id": "harbor-proposal",
+      "title": "Community gallery proposal",
+      "subtitle": "A submission window confirmed by a recorded human decision",
+      "sources": [
+        {
+          "id": "gallery-call",
+          "title": "Gallery call for proposals",
+          "label": "Original call · 02 Feb 2027",
+          "text": "Applications open on 2 February 2027.\nSend the final proposal by 18 February 2027 (17:00), local time.\nRehearsals start on 23 February 2027.",
+          "lines": [
+            {
+              "id": "gallery-call-l1",
+              "text": "Applications open on 2 February 2027."
+            },
+            {
+              "id": "gallery-call-l2",
+              "text": "Send the final proposal by 18 February 2027 (17:00), local time."
+            },
+            {
+              "id": "gallery-call-l3",
+              "text": "Rehearsals start on 23 February 2027."
+            }
+          ]
+        },
+        {
+          "id": "gallery-review",
+          "title": "Coordinator review note",
+          "label": "Human review record · 04 Feb 2027",
+          "text": "Reviewed the gallery call. Confirmed proposal deadline: 18 February 2027 at 17:00.\nThe rehearsal start is a separate milestone, not the filing deadline.",
+          "lines": [
+            {
+              "id": "gallery-review-l1",
+              "text": "Reviewed the gallery call. Confirmed proposal deadline: 18 February 2027 at 17:00."
+            },
+            {
+              "id": "gallery-review-l2",
+              "text": "The rehearsal start is a separate milestone, not the filing deadline."
+            }
+          ]
+        }
+      ],
+      "stages": [
+        {
+          "id": "gallery-arrival",
+          "title": "The invitation distinguishes three dates",
+          "kind": "source",
+          "label": "Call received",
+          "at": "2027-02-02",
+          "detail": "The invitation gives an opening date, a proposal deadline and a rehearsal date.",
+          "sourceIds": [
+            "gallery-call"
+          ],
+          "evidence": [
+            {
+              "sourceId": "gallery-call",
+              "lineIds": [
+                "gallery-call-l1",
+                "gallery-call-l2",
+                "gallery-call-l3"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gallery-candidate",
+          "title": "18 February 2027 at 17:00",
+          "kind": "candidate",
+          "label": "Candidate found",
+          "at": "2027-02-03",
+          "detail": "The candidate time comes from the final proposal instruction. It stays provisional until human review.",
+          "sourceIds": [
+            "gallery-call"
+          ],
+          "evidence": [
+            {
+              "sourceId": "gallery-call",
+              "lineIds": [
+                "gallery-call-l2"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gallery-confirmed",
+          "title": "Filing deadline confirmed",
+          "kind": "confirmed",
+          "label": "Confirmed",
+          "at": "2027-02-04",
+          "detail": "The review independently records the same filing time. Trace the decision to its review note and the source it confirmed.",
+          "sourceIds": [
+            "gallery-call",
+            "gallery-review"
+          ],
+          "evidence": [
+            {
+              "sourceId": "gallery-call",
+              "lineIds": [
+                "gallery-call-l2"
+              ]
+            },
+            {
+              "sourceId": "gallery-review",
+              "lineIds": [
+                "gallery-review-l1",
+                "gallery-review-l2"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "studio-access",
+      "title": "Studio access application",
+      "subtitle": "Conflicting due dates stay visible until someone reconciles them",
+      "sources": [
+        {
+          "id": "studio-guide",
+          "title": "Studio access guide",
+          "label": "Published guide · 12 Feb 2027",
+          "text": "Studio access opens to residents in March 2027.\nThe access form must reach the desk by 2 March 2027 at 12:00.",
+          "lines": [
+            {
+              "id": "studio-guide-l1",
+              "text": "Studio access opens to residents in March 2027."
+            },
+            {
+              "id": "studio-guide-l2",
+              "text": "The access form must reach the desk by 2 March 2027 at 12:00."
+            }
+          ]
+        },
+        {
+          "id": "studio-brief",
+          "title": "Studio application handout",
+          "label": "Printed allocation sheet · 14 Feb 2027",
+          "text": "Studio access applications close on 5 March 2027 at 12:00.\nThe desk will release its decision on 12 March 2027.",
+          "lines": [
+            {
+              "id": "studio-brief-l1",
+              "text": "Studio access applications close on 5 March 2027 at 12:00."
+            },
+            {
+              "id": "studio-brief-l2",
+              "text": "The desk will release its decision on 12 March 2027."
+            }
+          ]
+        }
+      ],
+      "stages": [
+        {
+          "id": "studio-arrival",
+          "title": "The published guide gives an application cut-off",
+          "kind": "source",
+          "label": "First source",
+          "at": "2027-02-12",
+          "detail": "The guide names 2 March 2027 at 12:00 as the deadline for the access form.",
+          "sourceIds": [
+            "studio-guide"
+          ],
+          "evidence": [
+            {
+              "sourceId": "studio-guide",
+              "lineIds": [
+                "studio-guide-l2"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "studio-conflict",
+          "title": "2 March and 5 March both claim to close applications",
+          "kind": "conflict",
+          "label": "Dates disagree",
+          "at": "2027-02-14",
+          "detail": "The handout names a different filing cut-off. There is no evidence that either source supersedes the other.",
+          "sourceIds": [
+            "studio-guide",
+            "studio-brief"
+          ],
+          "evidence": [
+            {
+              "sourceId": "studio-guide",
+              "lineIds": [
+                "studio-guide-l2"
+              ]
+            },
+            {
+              "sourceId": "studio-brief",
+              "lineIds": [
+                "studio-brief-l1"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "studio-pending",
+          "title": "Ask the studio desk to confirm the deadline",
+          "kind": "review",
+          "label": "Needs review",
+          "at": "2027-02-15",
+          "detail": "Keep both sources attached. Only an explicit confirmation can resolve the conflict.",
+          "sourceIds": [
+            "studio-guide",
+            "studio-brief"
+          ],
+          "evidence": [
+            {
+              "sourceId": "studio-guide",
+              "lineIds": [
+                "studio-guide-l2"
+              ]
+            },
+            {
+              "sourceId": "studio-brief",
+              "lineIds": [
+                "studio-brief-l1"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "workshop-brief",
+      "title": "Workshop safety brief",
+      "subtitle": "An event start date cannot fill a missing submission deadline",
+      "sources": [
+        {
+          "id": "workshop-invitation",
+          "title": "Workshop invitation",
+          "label": "Event notice · 22 Feb 2027",
+          "text": "The build workshop starts on 22 March 2027.\nBring protective glasses to the optional orientation on 20 March.\nSend your safety method statement to the workshop desk for review.",
+          "lines": [
+            {
+              "id": "workshop-l1",
+              "text": "The build workshop starts on 22 March 2027."
+            },
+            {
+              "id": "workshop-l2",
+              "text": "Bring protective glasses to the optional orientation on 20 March."
+            },
+            {
+              "id": "workshop-l3",
+              "text": "Send your safety method statement to the workshop desk for review."
+            }
+          ]
+        }
+      ],
+      "stages": [
+        {
+          "id": "workshop-arrival",
+          "title": "A submission is requested",
+          "kind": "source",
+          "label": "Invitation received",
+          "at": "2027-02-22",
+          "detail": "The invitation asks for a safety method statement. It specifies when the workshop and orientation take place.",
+          "sourceIds": [
+            "workshop-invitation"
+          ],
+          "evidence": [
+            {
+              "sourceId": "workshop-invitation",
+              "lineIds": [
+                "workshop-l1",
+                "workshop-l2",
+                "workshop-l3"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "workshop-missing",
+          "title": "No due date is stated",
+          "kind": "missing",
+          "label": "Deadline absent",
+          "at": "2027-02-23",
+          "detail": "The source gives two event dates but supplies no deadline for the statement. Leave the deadline unset.",
+          "sourceIds": [
+            "workshop-invitation"
+          ],
+          "evidence": [
+            {
+              "sourceId": "workshop-invitation",
+              "lineIds": [
+                "workshop-l1",
+                "workshop-l2",
+                "workshop-l3"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "workshop-pending",
+          "title": "Ask when the statement must arrive",
+          "kind": "review",
+          "label": "Needs review",
+          "at": "2027-02-24",
+          "detail": "A confirmation from the workshop desk is needed before a filing deadline can be recorded.",
+          "sourceIds": [
+            "workshop-invitation"
+          ],
+          "evidence": [
+            {
+              "sourceId": "workshop-invitation",
+              "lineIds": [
+                "workshop-l3"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "engine": "Neo4j Relate",
+    "mode": "snapshot",
+    "evidencePaths": 19,
+    "synthetic": true
+  }
+}

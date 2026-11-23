@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Trace a deadline to its original evidence and see what still needs review.">
+  <title>Deadline Trace | Evidence graph</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <a class="skip" href="#workspace">Skip to evidence workspace</a>
+  <header class="masthead">
+    <a class="brand" href="./" aria-label="Deadline Trace home">
+      <span class="mark" aria-hidden="true"><i></i><i></i><i></i><b></b><b></b></span>
+      <span>Deadline<span class="brand-light">Trace</span></span>
+    </a>
+    <nav aria-label="Project">
+      <a href="#workspace">Evidence workspace</a>
+      <a href="#readout">Review and sources</a>
+    </nav>
+    <div class="connection" id="connection" role="status"><i></i><span>Connecting to Relate…</span></div>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="main-title">
+      <div>
+        <h1 id="main-title">Trace the <em>deadline.</em></h1>
+        <p>Follow dates to the lines that support them. See where two documents disagree and what a person still needs to decide.</p>
+      </div>
+      <div class="legend" aria-label="Map legend">
+        <span><i class="legend-doc"></i> Source</span>
+        <span><i class="legend-date"></i> Timing</span>
+        <span><i class="legend-handoff"></i> Review</span>
+      </div>
+    </section>
+
+    <section id="workspace" aria-labelledby="workspace-title" aria-busy="true">
+      <div class="workspace-top">
+        <h2 id="workspace-title">Explore a case</h2>
+        <p>Fictional documents</p>
+      </div>
+      <div id="case-controls" class="case-controls" role="group" aria-label="Fictional cases"></div>
+      <div id="load-error" class="load-error" hidden><h3>Graph unavailable</h3><p>The browser could not load the case data. Start the local project server, then try again.</p><button type="button" id="retry">Try again</button></div>
+      <div id="experience" hidden>
+        <article class="observatory" aria-labelledby="map-title">
+          <div class="map-heading">
+            <div><p class="map-caption" id="case-name"></p><h3 id="map-title">Evidence map</h3></div>
+            <div class="map-controls" role="group" aria-label="3D map rotation">
+              <button type="button" id="rotate-left" title="Rotate left" aria-label="Rotate the map left">↶</button>
+              <button type="button" id="rotate-right" title="Rotate right" aria-label="Rotate the map right">↷</button>
+            </div>
+          </div>
+          <div class="map-stage">
+            <canvas id="map" aria-hidden="true"></canvas>
+            <p class="map-action">Drag to rotate · click a node to inspect</p>
+          </div>
+          <div class="timeline">
+            <button type="button" id="play" aria-label="Play review timeline" title="Play review timeline">▶</button>
+            <div class="track">
+              <div class="track-label"><label for="scrub">Review timeline</label><output id="position" for="scrub"></output></div>
+              <input type="range" id="scrub" min="0" max="1" step="1" value="0">
+              <div id="steps" class="step-list" role="group" aria-label="Timeline steps"></div>
+            </div>
+          </div>
+        </article>
+
+        <section class="readout" id="readout" aria-label="Review and sources">
+          <article class="detail panel" aria-labelledby="detail-title">
+            <div class="panel-top"><p class="eyebrow">Review trail</p><span id="stage-type" class="state-badge"></span></div>
+            <div id="selected-stage" aria-live="polite">
+              <h3 id="detail-title"></h3>
+              <p id="detail-date" class="detail-date" hidden></p>
+              <p id="detail-copy" class="detail-copy"></p>
+            </div>
+            <h4>Evidence in this step</h4>
+            <div id="citations" class="citations" role="group" aria-label="Evidence links"></div>
+            <p class="empty" id="no-citations" hidden>No source lines are linked to this step.</p>
+          </article>
+
+          <article class="sources panel" aria-labelledby="sources-title">
+            <div class="panel-top"><p class="eyebrow">Original documents</p><span id="source-count" class="source-count"></span></div>
+            <h3 id="sources-title">Read the source</h3>
+            <div id="source-controls" class="source-controls" role="group" aria-label="Original documents"></div>
+            <div class="document" id="document" aria-labelledby="document-title">
+              <div class="doc-title"><span aria-hidden="true">▤</span><h4 id="document-title"></h4></div>
+              <ol id="source-lines" aria-label="Original source lines"></ol>
+            </div>
+          </article>
+        </section>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <span>Deadline Trace · SPINNENNETZ-DNA</span>
+    <span id="record-info">Relate by Neo4j</span>
+  </footer>
+</body>
+</html>

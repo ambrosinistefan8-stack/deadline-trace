@@ -1,0 +1,17 @@
+{
+  "name": "deadline-trace",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.mjs",
+    "export:graph": "node export-graph.mjs",
+    "inspect:demo": "node inspect-demo.mjs",
+    "test": "node --test test/graph.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@relate/relate": "1.2.0"
+  }
+}
